@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        .announcement-details {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .details-header {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #307e4a;
+            text-decoration: none;
+        }
+
+        .announcement-title-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-content h1 {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .meta-details {
+            display: flex;
+            gap: 2rem;
+            color: #666;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .type-badge {
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .details-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .content-section h2 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #307e4a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #266940;
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #307e4a;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        .attachment-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .attachment-item:hover {
+            background: #f8f9fa;
+        }
+
+        .attachment-icon {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #307e4a;
+        }
+
+        .attachment-info {
+            flex-grow: 1;
+        }
+
+        .attachment-name {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .attachment-meta {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            color: #307e4a;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #307e4a;
+            color: white;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.facebook { background: #4267B2; }
+        .share-btn.linkedin { background: #0077B5; }
+        .share-btn:hover { transform: translateY(-3px); }
+
+        @media (max-width: 992px) {
+            .details-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <h4>
+                <a class="navbar-brand text-light" href="index.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a class="dropdown-item" href="information.html">Information/History</a></li> -->
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="information.html">Information/History</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="founding-vision.html">The Founding Vision</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Era of Expansion</a></li>
+                                    <li><a class="dropdown-item" href="#">Digital Revolution</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="mission-vision.html">Mission and Vision</a></li>
+                            <li><a class="dropdown-item" href="#">International Advisory Board</a></li>
+                            <li><a class="dropdown-item" href="#">Accreditation</a></li>
+                            <li><a class="dropdown-item" href="#">Communication Policy</a></li>
+                            <li><a class="dropdown-item" href="#">Facts About Nextgen</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Executive Leaders</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a></li>
+                                    <li><a class="dropdown-item" href="#">Deans and Directors</a></li>
+                                    <li><a class="dropdown-item" href="#">Administration</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- News & Events Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Academics Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Academics
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Business</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Accounting and Finance</a></li>
+                                    <li><a class="dropdown-item" href="#">Economics</a></li>
+                                    <li><a class="dropdown-item" href="#">Management</a></li>
+                                    <li><a class="dropdown-item" href="#">Marketing</a></li>
+                                    <li><a class="dropdown-item" href="#">MBA Programs</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Engineering</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Architecture</a></li>
+                                    <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
+                                    <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="cse-department.html">Computer
+                                            Engineering</a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="program-details.html">BSc in Computer
+                                                    Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">MSc in Computer Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">PhD in Computer Engineering</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Humanities</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">English</a></li>
+                                    <li><a class="dropdown-item" href="#">Law</a></li>
+                                    <li><a class="dropdown-item" href="#">Political Science</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Faculty Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Faculty
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Business Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">BBA Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">Economics Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Engineering Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Architecture Faculty</a></li>
+                                    <li><a class="dropdown-item" href="cse-faculty.html">CSE Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">EEE Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Arts Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Law Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">History Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Health Science Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Pharmacy Faculty</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <!-- Research Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Groups</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Admission Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Admission
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Financial Information</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Scholarships</a></li>
+                                    <li><a class="dropdown-item" href="#">International Scholarships</a></li>
+                                    <li><a class="dropdown-item" href="#">Tuition and Fees</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Application</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <!-- <li><a class="dropdown-item" href="ug-admission.html">UG Admission</a></li> -->
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="ug-admission.html">UG
+                                            Admission</a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="all-departments.html">All Programs</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Admission Requiements</a></li>
+                                            <li><a class="dropdown-item" href="#">Tution & Aid</a></li>
+                                            <li><a class="dropdown-item" href="application-apply.html">Online
+                                                    Application</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">PG Admission</a></li>
+                                    <li><a class="dropdown-item" href="#">Freshman Enrollment</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">News and Event</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="announcement.html">Announcement</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="#"><Details></Details></a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="my-5">
+        <section class="announcement-details">
+            <div class="container">
+                <!-- Header Section -->
+                <div class="details-header">
+                    <div class="announcement-title-section">
+                        <div class="title-content">
+                            <h1>Fall 2024 Semester Registration Deadline</h1>
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>October 5, 2024</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>Posted by Admin</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>1,245 views</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="type-badge" style="background: #ffebee; color: #c62828;">Important</span>
+                    </div>
+                </div>
+    
+                <!-- Main Content Grid -->
+                <div class="details-content">
+                    <!-- Main Content -->
+                    <div class="main-content">
+                        <div class="content-section">
+                            <h2>Announcement Details</h2>
+                            <p>All students must complete their course registration for Fall 2024 semester by October 15, 2024. Late registration will incur additional fees. Please ensure you have completed all prerequisites and have met with your academic advisor before registration.</p>
+                        </div>
+    
+                        <div class="content-section">
+                            <h2>Important Dates</h2>
+                            <ul>
+                                <li>Registration Opens: October 1, 2024</li>
+                                <li>Regular Registration Deadline: October 15, 2024</li>
+                                <li>Late Registration Period: October 16-20, 2024 (additional fees apply)</li>
+                                <li>Classes Begin: October 25, 2024</li>
+                            </ul>
+                        </div>
+    
+                        <div class="content-section">
+                            <h2>Additional Information</h2>
+                            <p>For more information about course registration, please visit the Registrar's Office website or contact your academic advisor. Remember to clear any holds on your account before attempting to register.</p>
+                        </div>
+    
+                        <div class="action-buttons">
+                            <a href="#" class="btn btn-primary">
+                                <i class="fas fa-download"></i>
+                                Download PDF
+                            </a>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-print"></i>
+                                Print
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Sidebar -->
+                    <div class="sidebar">
+                        <!-- Attachments Card -->
+                        <div class="sidebar-card">
+                            <h3>Attachments</h3>
+                            <ul class="attachment-list">
+                                <li class="attachment-item">
+                                    <div class="attachment-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="attachment-info">
+                                        <div class="attachment-name">Registration Guide.pdf</div>
+                                        <div class="attachment-meta">PDF • 2.5 MB</div>
+                                    </div>
+                                    <i class="fas fa-download"></i>
+                                </li>
+                                <li class="attachment-item">
+                                    <div class="attachment-icon">
+                                        <i class="fas fa-file-excel"></i>
+                                    </div>
+                                    <div class="attachment-info">
+                                        <div class="attachment-name">Course Schedule.xlsx</div>
+                                        <div class="attachment-meta">Excel • 1.8 MB</div>
+                                    </div>
+                                    <i class="fas fa-download"></i>
+                                </li>
+                            </ul>
+                        </div>
+    
+                        <!-- Tags Card -->
+                        <div class="sidebar-card">
+                            <h3>Related Tags</h3>
+                            <div class="tag-list">
+                                <span class="tag">#Registration</span>
+                                <span class="tag">#Fall2024</span>
+                                <span class="tag">#Deadline</span>
+                                <span class="tag">#Important</span>
+                            </div>
+                        </div>
+    
+                        <!-- Share Card -->
+                        <div class="sidebar-card">
+                            <h3>Share</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/navbar.js"></script>
+</body>
+
+</html>
